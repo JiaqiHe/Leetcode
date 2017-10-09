@@ -5,7 +5,7 @@ Return all possible palindrome partitioning of s.
 
 ## solution
 The idea is as follows:\
-a. We store temporary partitioning results for the part we have already checked, and move on to the rest of the string;
+a. We store temporary partitioning results for the part we have already checked, and move on to the rest of the string;\
 b. We need to check all possible ways of getting a palindrome containing the first char in the left string; every time we find that palindrome,
 we add this palindrome to the stored results, and do the same work for the rest string;
 
