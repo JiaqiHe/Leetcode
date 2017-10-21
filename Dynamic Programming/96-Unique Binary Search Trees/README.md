@@ -19,6 +19,7 @@ BSTs, we might as well try to construct arrays that can be pre-order/post-order 
 Let's use pre-order traversal as our target. Due to the property of BST, the pre-order sequence of a BST would form perfectly into the
 following pattern:
 * (first element a) (elements smaller than a) (elements larger than a)
+
 This might indicates the DP idea to solve this problem. If we settle down the first element, then the rest of the work is:
 
 * for the elements smaller than the first element, they should form a BST as well, namely they should also satisfy the pattern. This clutser 
