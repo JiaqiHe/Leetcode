@@ -7,7 +7,7 @@ Note that 1 is typically treated as an ugly number, and n does not exceed 1690.
 
 ## Idea
 This problem can be solved in a DP format.
- Let's find out how the array is formed. The first element is 1, which is equal to 2^0*3^0*5^0. We do this split and check if there is any secret:
+ Let's find out how the array is formed. The first element is 1, which is equal to 2^0 * 3^0 * 5^0. We do this split and check if there is any secret:
  
  | Number        | 2     | 3        |5          |
 |-------------|:--------:|:--------:|:--------:|
@@ -31,4 +31,4 @@ Set three pointers indicating the numbers of 2,3,5 in the number. Every time we 
 ```
 dp[i] = min(dp[ptr2]*2, min(dp[ptr3]*3, dp[ptr5]*5)) 
 ```
-to get the number. After we find this value, we have to update the corresponding pointer.
+to get the number. After we find this value, we have to update the corresponding pointer. Why is that? Think of these three pointers as three competitors in a competition. And we going to pick the smallest one. They are standing at one base number. Every time they have to multiply their base with themselves, and we have to select the smallest one from the three of them. Once the winner is found and put into the array, we have to change the winner's base to a larger value, otherwise this winner would always win and have no point at all. By doing so, we can actually construct the array we want.
