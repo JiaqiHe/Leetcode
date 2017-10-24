@@ -28,7 +28,7 @@ Turns out 2 is dp[1] and 3 is dp[2]. We can utilize dp[ptr3]*3 to get what we wa
 So the strategy is the following:
 
 Set three pointers indicating the numbers of 2,3,5 in the number. Every time we do:
-```
+``` c++
 dp[i] = min(dp[ptr2]*2, min(dp[ptr3]*3, dp[ptr5]*5)) 
 ```
 to get the number. After we find this value, we have to update the corresponding pointer. Why is that? Think of these three pointers as three competitors in a competition. And we going to pick the smallest one. They are standing at one base number. Every time they have to multiply their base with themselves, and we have to select the smallest one from the three of them. Once the winner is found and put into the array, we have to change the winner's base to a larger value, otherwise this winner would always win and have no point at all. By doing so, we can actually construct the array we want.
