@@ -1,14 +1,12 @@
 class Solution {
 public:
-    vector<vector<char>> copy;
-    void solve(vector<vector<char>> board, vector<vector<bool>> row_visited, vector<vector<bool>> col_visited, vector<vector<bool>> block_visited, int num){
+    bool solve(vector<vector<char>> &board, vector<vector<bool>> &row_visited, vector<vector<bool>> &col_visited, vector<vector<bool>> &block_visited, int num){
         if(num == 81){
-            copy = board;
-            return;
+            return true;
         } 
         int x = num/9;
         int y = num%9;
-        if(board[x][y] != '.') solve(board, row_visited, col_visited, block_visited, num+1);
+        if(board[x][y] != '.') return solve(board, row_visited, col_visited, block_visited, num+1);
         else {
             for(int i = 0; i < 9; i ++){
                 if(row_visited[x][i] == true || col_visited[y][i] == true || block_visited[x/3*3+y/3][i] == true) continue;
@@ -17,13 +15,14 @@ public:
                     row_visited[x][i] = true;
                     col_visited[y][i] = true;
                     block_visited[x/3*3+y/3][i] = true;
-                    solve(board, row_visited, col_visited, block_visited, num+1);
+                    if(solve(board, row_visited, col_visited, block_visited, num+1)) return true;
+                    board[x][y] = '.';
                     row_visited[x][i] = false;
                     col_visited[y][i] = false;
                     block_visited[x/3*3+y/3][i] = false;
                 }
             }
-            return;
+            return false;
         }
     }
     void solveSudoku(vector<vector<char>>& board) {
@@ -45,7 +44,6 @@ public:
             }
         }
         solve(board, row_visited, col_visited, block_visited, 0);
-        board = copy;
         return;
     }
 };
