@@ -43,7 +43,7 @@ __Shunting-yard algorithm__ and __reverse polish notation(RPN)__.
 
 We can transform infix expressions into postfix notation string (RPN) and evaluate the transformed string.
 
-Details about shunting-yard algorithm (from Wikipedia):
+Details about shunting-yard algorithm (from [Wikipedia](https://en.wikipedia.org/wiki/Shunting-yard_algorithm)):
 ```
 while there are tokens to be read:
 	read a token.
@@ -72,7 +72,7 @@ if there are no more tokens to read:
 exit.
 ```
 
-Algorithm that evaluate RPN expressions:
+Algorithm that evaluate RPN expressions (from [Wikipedia](https://en.wikipedia.org/wiki/Reverse_Polish_notation)):
 ```
 for each token in the postfix expression:
   if token is an operator:
