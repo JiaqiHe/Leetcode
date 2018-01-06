@@ -13,7 +13,7 @@ Some examples:
 ```
 Note: Do not use the eval built-in library function.
 
-## Idea
+## Idea 1
 The general idea is to use stacks. Every time we encounter "(", we push current result and current operation sign to corresponding stack, and reset the variables; Every
 time we encounter ")", we know that we have finished this nested part, we take out the top-level elements in the stacks, and do calculations to combine answers.
 
@@ -37,3 +37,50 @@ we need to combine this result with the former answers that have been pushed int
 Another thing to notice is that we only add `num` into `res` only when we encounter "+/-/(/)", what if the end char of the string is simply 
 digit, if so we don't add the last number into the result. Hence we need `res += sign * num` at the end. This is also safe for other cases because
 we reset `num` to be 0 and the last step won't affect them.
+
+## Idea 2
+__Shunting-yard algorithm__ and __reverse polish notation(RPN)__.
+
+We can transform infix expressions into postfix notation string (RPN) and evaluate the transformed string.
+
+Details about shunting-yard algorithm (from Wikipedia):
+```
+while there are tokens to be read:
+	read a token.
+	if the token is a number, then push it to the output queue.
+	if the token is an operator, then:
+		while ((there is an operator at the top of the operator stack with
+			greater precedence) or (the operator at the top of the operator stack has
+                        equal precedence and
+                        the operator is left associative)) and
+                      (the operator at the top of the stack is not a left bracket):
+				pop operators from the operator stack, onto the output queue.
+		push the read operator onto the operator stack.
+	if the token is a left bracket (i.e. "("), then:
+		push it onto the operator stack.
+	if the token is a right bracket (i.e. ")"), then:
+		while the operator at the top of the operator stack is not a left bracket:
+			pop operators from the operator stack onto the output queue.
+		pop the left bracket from the stack.
+		/* if the stack runs out without finding a left bracket, then there are
+		mismatched parentheses. */
+if there are no more tokens to read:
+	while there are still operator tokens on the stack:
+		/* if the operator token on the top of the stack is a bracket, then
+		there are mismatched parentheses. */
+		pop the operator onto the output queue.
+exit.
+```
+
+Algorithm that evaluate RPN expressions:
+```
+for each token in the postfix expression:
+  if token is an operator:
+    operand_2 ← pop from the stack
+    operand_1 ← pop from the stack
+    result ← evaluate token with operand_1 and operand_2
+    push result back onto the stack
+  else if token is an operand:
+    push token onto the stack
+result ← pop from the stack
+```
