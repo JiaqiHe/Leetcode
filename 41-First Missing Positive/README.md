@@ -27,7 +27,7 @@ After we rearrange the array, we can find the first missing positive integer wit
 find the first one that doesn't contain its owner. This element is the first missing positive integer.
 
 The logic of this algorithm is as follows:
-```
+```c++
 while (ptr < length of input array):
   if (the element is out of bound):
     ptr++
