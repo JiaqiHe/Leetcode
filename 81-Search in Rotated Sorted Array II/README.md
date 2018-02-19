@@ -8,4 +8,4 @@ Write a function to determine if a given target is in the array.
 The array may contain duplicates.
 
 ## Idea
-![here]()
+![](https://github.com/JiaqiHe/Leetcode/blob/master/81-Search%20in%20Rotated%20Sorted%20Array%20II/IMG_0292.JPG)
