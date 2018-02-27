@@ -15,11 +15,12 @@ board =
 Output:
 [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[110,0,0,0,114],[210,0,0,0,214],[310,0,0,113,314],[410,0,0,213,414],[610,211,112,313,614],[710,311,412,613,714],[810,411,512,713,1014]]
 Explanation: 
+![](https://github.com/JiaqiHe/Leetcode/blob/master/723-Candy%20Crush/candy_crush_example_2.png)
 
 Note:
-The length of board will be in the range [3, 50].
-The length of board[i] will be in the range [3, 50].
-Each board[i][j] will initially start as an integer in the range [1, 2000].
+* The length of board will be in the range [3, 50].
+* The length of board[i] will be in the range [3, 50].
+* Each board[i][j] will initially start as an integer in the range [1, 2000].
 
 ## Idea
 
