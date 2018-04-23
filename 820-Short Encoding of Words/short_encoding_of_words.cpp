@@ -16,7 +16,6 @@ public:
                 root = root->dict[word[ptr] - 'a'];
             }
             else {
-                if(word == "em") cout<<ptr;
                 covered = false;
                 TrieNode* newNode = new TrieNode();
                 root->dict[word[ptr] - 'a'] = newNode;
