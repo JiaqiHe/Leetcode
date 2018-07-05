@@ -4,15 +4,11 @@ public:
         if(A.length() != B.length()) return 0;
         // A -> B
         unordered_map<char, set<int>> dict;
-        vector<bool> match(A.length(), false);
         set<int> unmatched;
         for(int i = 0; i < A.length(); i ++) {
             if(A[i] != B[i]) {
                 dict[A[i]].insert(i);
                 unmatched.insert(i);
-            }
-            else {
-                match[i] = true;
             }
         }
         if(dict.empty()) return 0;
