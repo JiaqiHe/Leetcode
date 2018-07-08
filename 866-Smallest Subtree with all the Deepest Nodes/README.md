@@ -7,6 +7,8 @@ The subtree of a node is that node, plus the set of all descendants of that node
 
 Return the node with the largest depth such that it contains all the deepest nodes in it's subtree.
 
+Example:
+
 Input: [3,5,1,6,2,0,8,null,null,7,4]
 
 Output: [2,7,4]
